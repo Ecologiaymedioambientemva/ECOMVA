@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Administración | Ecología y Medio Ambiente Monclova</title>
+  <meta name="theme-color" content="#064e3b">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Estilos globales -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-stone-50 text-gray-800 antialiased min-h-screen">
+
+  <!-- ============================================================
+       BARRA SUPERIOR OFICIAL
+       ============================================================ -->
+  <div class="barra-oficial">
+    <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between text-[11px] sm:text-xs">
+      <div class="flex items-center gap-2 text-emerald-50/90">
+        <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M10 2l2.39 4.84L17.8 7.6l-3.9 3.8.92 5.37L10 14.14l-4.82 2.63.92-5.37-3.9-3.8 5.41-.76L10 2z"/>
+        </svg>
+        <span class="font-medium tracking-wide">Gobierno Municipal de Monclova</span>
+        <span class="hidden sm:inline text-emerald-200/50">·</span>
+        <span class="hidden sm:inline text-emerald-100/70">Panel Interno</span>
+      </div>
+      <div class="flex items-center gap-3 text-emerald-100/80">
+        <span class="hidden sm:inline">Dirección de Ecología y Medio Ambiente</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       HEADER PRINCIPAL CON DOBLE EMBLEMA (igual al index)
+       ============================================================ -->
+  <header class="header-principal bg-white border-b-4 border-amber-400 shadow-sm sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 py-4">
+      <div class="grid grid-cols-3 items-center gap-4">
+
+        <!-- Emblema izquierdo: Monclova -->
+        <div class="flex justify-start">
+          <img src="assets/img/logo-monclova.png"
+               alt="Escudo del Municipio de Monclova"
+               class="logo-header h-14 sm:h-16 w-auto object-contain"
+               onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'flex flex-col items-center justify-center h-14 sm:h-16 w-14 sm:w-16 rounded-full border-2 border-emerald-700 text-emerald-700 text-[8px] font-bold text-center leading-tight p-1\'>MONCLOVA<BR>COAH.</div>';">
+        </div>
+
+        <!-- Título central -->
+        <div class="text-center min-w-0">
+          <p class="text-[10px] sm:text-xs font-semibold tracking-[0.2em] text-amber-600 uppercase">Panel de</p>
+          <h1 class="titulo-institucional text-emerald-900 text-base sm:text-xl leading-tight">
+            Administración de Reportes
+          </h1>
+          <div class="flex items-center justify-center gap-2 mt-1">
+            <span class="h-px w-6 sm:w-10 bg-amber-400"></span>
+            <p class="text-[10px] sm:text-xs font-semibold text-emerald-700 tracking-widest uppercase">Ecología Monclova</p>
+            <span class="h-px w-6 sm:w-10 bg-amber-400"></span>
+          </div>
+        </div>
+
+        <!-- Emblema derecho: Ecología -->
+        <div class="flex justify-end">
+          <img src="assets/img/logo-ecologia.png"
+               alt="Logo de Ecología y Medio Ambiente"
+               class="logo-header h-14 sm:h-16 w-auto object-contain"
+               onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'flex flex-col items-center justify-center h-14 sm:h-16 w-14 sm:w-16 rounded-full border-2 border-emerald-700 text-emerald-700 text-[8px] font-bold text-center leading-tight p-1\'>ECOLOGÍA<BR>Y MEDIO<BR>AMBIENTE</div>';">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       BARRA DE ESTADO + ACCIONES
+       ============================================================ -->
+  <div class="bg-emerald-900 border-b border-emerald-800">
+    <div class="max-w-7xl mx-auto px-4 py-2.5 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <span id="connectionStatus" class="inline-flex items-center gap-1.5 text-xs font-medium text-white bg-white/10 px-3 py-1.5 rounded-full border border-white/20">
+          <span id="statusDot" class="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></span>
+          <span id="statusText">Conectando...</span>
+        </span>
+        <span class="text-xs text-emerald-200/80 hidden sm:inline">
+          Actualización en tiempo real vía Firebase Realtime Database
+        </span>
+      </div>
+      <a href="index.html"
+         class="text-xs sm:text-sm text-white bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-lg border border-white/20 transition font-medium inline-flex items-center gap-1.5">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+        <span>Ir al Portal Ciudadano</span>
+      </a>
+    </div>
+  </div>
+
+  <main class="max-w-7xl mx-auto px-4 py-6 space-y-6">
+
+    <!-- ============================================================
+         DASHBOARD MÉTRICAS
+         ============================================================ -->
+    <section class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <!-- Total Reportes -->
+      <div class="metric-card bg-white rounded-2xl shadow-sm border border-emerald-100 p-5 flex items-center gap-4 border-l-4 border-l-emerald-500">
+        <div class="bg-emerald-100 p-3 rounded-2xl">
+          <svg class="w-7 h-7 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+        </div>
+        <div>
+          <p class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Total Reportes</p>
+          <p id="metricTotal" class="text-3xl font-extrabold text-emerald-800">0</p>
+        </div>
+      </div>
+
+      <!-- Reportes del día -->
+      <div class="metric-card bg-white rounded-2xl shadow-sm border border-blue-100 p-5 flex items-center gap-4 border-l-4 border-l-blue-500">
+        <div class="bg-blue-100 p-3 rounded-2xl">
+          <svg class="w-7 h-7 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+        </div>
+        <div>
+          <p class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Reportes Hoy</p>
+          <p id="metricHoy" class="text-3xl font-extrabold text-blue-800">0</p>
+        </div>
+      </div>
+
+      <!-- Categoría más frecuente -->
+      <div class="metric-card bg-white rounded-2xl shadow-sm border border-amber-100 p-5 flex items-center gap-4 border-l-4 border-l-amber-400">
+        <div class="bg-amber-100 p-3 rounded-2xl">
+          <svg class="w-7 h-7 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+        </div>
+        <div class="min-w-0 flex-1">
+          <p class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Categoría más común</p>
+          <p id="metricCategoria" class="text-base sm:text-lg font-extrabold text-amber-800 truncate">—</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FILTROS
+         ============================================================ -->
+    <section class="bg-white rounded-2xl shadow-sm border border-emerald-100 p-4 sm:p-5">
+      <div class="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
+        <div class="flex items-center gap-2 text-emerald-800 font-semibold text-sm">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path></svg>
+          Filtros:
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3 flex-1">
+          <div class="flex-1">
+            <label for="filtroColonia" class="sr-only">Filtrar por colonia</label>
+            <input type="text" id="filtroColonia" placeholder="🔍 Buscar por colonia..."
+                   class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none transition bg-gray-50 text-sm">
+          </div>
+          <div class="flex-1">
+            <label for="filtroCategoria" class="sr-only">Filtrar por categoría</label>
+            <select id="filtroCategoria" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none transition bg-gray-50 text-sm">
+              <option value="">Todas las categorías</option>
+            </select>
+          </div>
+          <div>
+            <label for="filtroEstado" class="sr-only">Filtrar por estado</label>
+            <select id="filtroEstado" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none transition bg-gray-50 text-sm">
+              <option value="">Todos los estados</option>
+              <option value="pendiente">Pendientes</option>
+              <option value="atendido">Atendidos</option>
+            </select>
+          </div>
+          <button id="btnLimpiarFiltros" class="px-4 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl font-medium text-sm transition whitespace-nowrap">
+            Limpiar
+          </button>
+        </div>
+      </div>
+      <p class="mt-2 text-xs text-gray-500">
+        Mostrando <span id="contadorFiltro" class="font-semibold text-emerald-700">0</span> reportes
+      </p>
+    </section>
+
+    <!-- ============================================================
+         LISTA DE REPORTES
+         ============================================================ -->
+    <section>
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-xl font-bold text-gray-800 flex items-center gap-2">
+          <span class="w-1.5 h-6 bg-emerald-500 rounded-full"></span>
+          Reportes Recibidos
+        </h2>
+        <button id="btnRefresh" class="text-sm text-emerald-700 hover:text-emerald-900 font-medium flex items-center gap-1.5 bg-emerald-50 hover:bg-emerald-100 px-3 py-2 rounded-lg transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+          Actualizar
+        </button>
+      </div>
+
+      <div id="gridReportes" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+        <div class="col-span-full flex flex-col items-center justify-center py-16 text-gray-400">
+          <svg class="w-12 h-12 mb-3 animate-spin text-emerald-400" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+          </svg>
+          <p class="text-sm font-medium">Cargando reportes...</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER INSTITUCIONAL
+       ============================================================ -->
+  <footer class="footer-institucional mt-10">
+    <div class="max-w-7xl mx-auto px-4 py-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <img src="assets/img/logo-monclova.png" alt="Monclova"
+               class="h-10 w-auto object-contain brightness-0 invert opacity-90"
+               onerror="this.style.display='none';">
+          <div class="text-emerald-50 text-center sm:text-left">
+            <p class="text-sm font-bold leading-tight">Gobierno Municipal de Monclova</p>
+            <p class="text-xs text-emerald-200/80 mt-0.5">Dirección de Ecología y Medio Ambiente</p>
+          </div>
+        </div>
+        <p class="text-[11px] text-emerald-200/70 text-center sm:text-right leading-relaxed">
+          © 2024 · Panel Interno de Administración<br>
+          Proyecto académico de Desarrollo Sustentable
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       MODAL PARA IMÁGENES
+       ============================================================ -->
+  <div id="imageModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm items-center justify-center p-4 modal-image">
+    <button id="closeModal" class="absolute top-4 right-4 text-white bg-white/10 hover:bg-white/20 p-3 rounded-full transition z-10" aria-label="Cerrar imagen">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    </button>
+    <img id="modalImage" src="" alt="Vista ampliada" class="max-w-full max-h-full rounded-lg shadow-2xl">
+  </div>
+
+  <!-- ============================================================
+       TOAST NOTIFICACIÓN
+       ============================================================ -->
+  <div id="toastAdmin" class="toast-admin-fixed hidden">
+    <div class="bg-gray-900 text-white px-5 py-3.5 rounded-xl shadow-2xl flex items-center gap-3 max-w-sm">
+      <div id="toastIcon" class="bg-emerald-500 rounded-full p-1 shrink-0">
+        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+      </div>
+      <p id="toastMessage" class="text-sm font-medium">Acción realizada</p>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FIREBASE SDK + SCRIPTS
+       ============================================================ -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
