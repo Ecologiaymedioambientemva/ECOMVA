@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <meta name="description" content="Portal ciudadano anónimo para el reporte de desperfectos ambientales en Monclova, Coahuila.">
+  <meta name="theme-color" content="#064e3b">
+  <title>Reporte Ambiental Monclova | Ecología y Medio Ambiente</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fuente Inter + Playfair Display (títulos institucionales) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Estilos globales -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-stone-50 text-gray-800 antialiased">
+
+  <!-- ============================================================
+       BARRA SUPERIOR OFICIAL
+       ============================================================ -->
+  <div class="barra-oficial">
+    <div class="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between text-[11px] sm:text-xs">
+      <div class="flex items-center gap-2 text-emerald-50/90">
+        <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M10 2l2.39 4.84L17.8 7.6l-3.9 3.8.92 5.37L10 14.14l-4.82 2.63.92-5.37-3.9-3.8 5.41-.76L10 2z"/>
+        </svg>
+        <span class="font-medium tracking-wide">Gobierno Municipal de Monclova</span>
+        <span class="hidden sm:inline text-emerald-200/50">·</span>
+        <span class="hidden sm:inline text-emerald-100/70">Administración 2024 – 2027</span>
+      </div>
+      <div class="flex items-center gap-3 text-emerald-100/80">
+        <span class="hidden sm:inline">Coahuila, México</span>
+        <span class="inline-flex items-center gap-1">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+          <span class="hidden md:inline">866-649-28-00</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       HEADER PRINCIPAL CON DOBLE EMBLEMA
+       ============================================================ -->
+  <header class="header-principal bg-white border-b-4 border-amber-400 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-5">
+      <div class="grid grid-cols-3 items-center gap-4">
+
+        <!-- Emblema izquierdo: Monclova -->
+        <div class="flex justify-start">
+          <img src="assets/img/logo-monclova.png"
+               alt="Escudo del Municipio de Monclova"
+               class="logo-header h-16 sm:h-20 w-auto object-contain"
+               onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'flex flex-col items-center justify-center h-16 sm:h-20 w-16 sm:w-20 rounded-full border-2 border-emerald-700 text-emerald-700 text-[8px] font-bold text-center leading-tight p-1\'>MONCLOVA<BR>COAH.</div>';">
+        </div>
+
+        <!-- Título institucional central -->
+        <div class="text-center min-w-0">
+          <p class="text-[10px] sm:text-xs font-semibold tracking-[0.2em] text-amber-600 uppercase">Dirección de</p>
+          <h1 class="titulo-institucional text-emerald-900 text-base sm:text-2xl leading-tight">
+            Ecología y Medio Ambiente
+          </h1>
+          <div class="flex items-center justify-center gap-2 mt-1">
+            <span class="h-px w-6 sm:w-10 bg-amber-400"></span>
+            <p class="text-[10px] sm:text-xs font-semibold text-emerald-700 tracking-widest uppercase">Monclova</p>
+            <span class="h-px w-6 sm:w-10 bg-amber-400"></span>
+          </div>
+        </div>
+
+        <!-- Emblema derecho: Ecología -->
+        <div class="flex justify-end">
+          <img src="assets/img/logo-ecologia.png"
+               alt="Logo de Ecología y Medio Ambiente"
+               class="logo-header h-16 sm:h-20 w-auto object-contain"
+               onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'flex flex-col items-center justify-center h-16 sm:h-20 w-16 sm:w-20 rounded-full border-2 border-emerald-700 text-emerald-700 text-[8px] font-bold text-center leading-tight p-1\'>ECOLOGÍA<BR>Y MEDIO<BR>AMBIENTE</div>';">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       HERO CON IMAGEN DE FONDO
+       ============================================================ -->
+  <section class="hero-section relative overflow-hidden">
+    <!-- Imagen de fondo con overlay verde institucional -->
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="relative max-w-4xl mx-auto px-5 py-14 sm:py-20 text-center text-white">
+      <span class="inline-flex items-center gap-2 bg-amber-400/95 text-emerald-950 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase shadow-lg">
+        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2l2.39 4.84L17.8 7.6l-3.9 3.8.92 5.37L10 14.14l-4.82 2.63.92-5.37-3.9-3.8 5.41-.76L10 2z"/></svg>
+        Portal Ciudadano Anónimo
+      </span>
+
+      <h2 class="hero-title mt-5 text-3xl sm:text-5xl leading-tight drop-shadow-lg">
+        Tu reporte transforma<br class="hidden sm:block"> el medio ambiente de Monclova
+      </h2>
+
+      <p class="mt-4 text-emerald-50 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed drop-shadow">
+        Reporta de forma <strong class="text-amber-300">anónima y segura</strong> tiraderos clandestinos, fugas de agua, quema de basura
+        y otros problemas ambientales en tu colonia. Tu voz ayuda a construir una ciudad más limpia y sustentable.
+      </p>
+
+      <div class="mt-7 flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="#formulario"
+           class="inline-flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-300 text-emerald-950 font-bold px-6 py-3 rounded-xl shadow-lg transition transform hover:scale-[1.02] active:scale-[0.98]">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          Hacer un reporte
+        </a>
+        <a href="#objetivo"
+           class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-xl border border-white/30 backdrop-blur-sm transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          Conocer más
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <main class="max-w-4xl mx-auto px-4 py-8 space-y-8">
+
+    <!-- ============================================================
+         INTRODUCCIÓN Y OBJETIVO
+         ============================================================ -->
+    <section id="objetivo" class="section-card">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h2 class="section-title">Introducción y objetivo sustentable</h2>
+      </div>
+
+      <div class="px-5 sm:px-7 pb-6 pt-2">
+        <p class="text-gray-700 leading-relaxed">
+          Monclova, Coahuila, enfrenta retos ambientales como tiraderos clandestinos, fugas de agua y quema de basura.
+          Este portal ciudadano permite reportar de forma <strong class="text-emerald-700">anónima</strong> estos problemas
+          para que la Dirección de Ecología pueda atenderlos y promover un entorno más limpio y sostenible.
+        </p>
+
+        <div class="mt-4 p-4 rounded-xl bg-gradient-to-br from-emerald-50 to-amber-50/40 border-l-4 border-amber-400">
+          <p class="text-sm text-emerald-900 leading-relaxed">
+            <span class="font-bold text-emerald-800 uppercase text-xs tracking-wider">Objetivo ·</span>
+            Facilitar la participación ciudadana sin registro, generando datos útiles para acciones de remediación
+            y educación ambiental en la región.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONSEJOS Y DATOS RÁPIDOS
+         ============================================================ -->
+    <section class="section-card">
+      <details class="group" open>
+        <summary class="section-header cursor-pointer list-none hover:bg-emerald-50/60 transition rounded-t-2xl">
+          <div class="section-icon">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+            </svg>
+          </div>
+          <h2 class="section-title flex-1">Consejos y datos rápidos (Monclova)</h2>
+          <span class="text-emerald-600 group-open:rotate-180 transition-transform mr-5">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </span>
+        </summary>
+
+        <div class="px-5 sm:px-7 pb-6 pt-3 grid gap-3">
+          <div class="consejo-item">
+            <div class="consejo-icon bg-blue-100 text-blue-700">💧</div>
+            <div>
+              <p class="font-semibold text-gray-800 text-sm">Fugas de agua</p>
+              <p class="text-sm text-gray-600 mt-0.5">Reporta fugas en calles o tomas. Una fuga puede desperdiciar hasta 20 litros por hora.</p>
+            </div>
+          </div>
+          <div class="consejo-item">
+            <div class="consejo-icon bg-orange-100 text-orange-700">🔥</div>
+            <div>
+              <p class="font-semibold text-gray-800 text-sm">Quema de basura</p>
+              <p class="text-sm text-gray-600 mt-0.5">Evita quemar residuos; libera toxinas que afectan a niños y adultos mayores en Monclova.</p>
+            </div>
+          </div>
+          <div class="consejo-item">
+            <div class="consejo-icon bg-red-100 text-red-700">🗑️</div>
+            <div>
+              <p class="font-semibold text-gray-800 text-sm">Tiraderos clandestinos</p>
+              <p class="text-sm text-gray-600 mt-0.5">Denúncialos. Son focos de infección y contaminación del suelo.</p>
+            </div>
+          </div>
+          <div class="consejo-item">
+            <div class="consejo-icon bg-emerald-100 text-emerald-700">🌱</div>
+            <div>
+              <p class="font-semibold text-gray-800 text-sm">Dato local</p>
+              <p class="text-sm text-gray-600 mt-0.5">Monclova cuenta con programas de reforestación; participa en las jornadas de limpieza.</p>
+            </div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ============================================================
+         TIPOS DE REPORTES ATENDIDOS
+         ============================================================ -->
+    <section class="section-card">
+      <details class="group">
+        <summary class="section-header cursor-pointer list-none hover:bg-emerald-50/60 transition rounded-t-2xl">
+          <div class="section-icon">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+            </svg>
+          </div>
+          <h2 class="section-title flex-1">Tipos de reportes atendidos</h2>
+          <span class="text-emerald-600 group-open:rotate-180 transition-transform mr-5">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </span>
+        </summary>
+
+        <div class="px-5 sm:px-7 pb-6 pt-4">
+          <div class="grid grid-cols-2 gap-3">
+            <div class="tipo-reporte">
+              <div class="text-2xl mb-1">🗑️</div>
+              <p class="text-xs sm:text-sm font-semibold text-emerald-900 text-center leading-tight">Tiraderos<br>clandestinos</p>
+            </div>
+            <div class="tipo-reporte">
+              <div class="text-2xl mb-1">💧</div>
+              <p class="text-xs sm:text-sm font-semibold text-emerald-900 text-center leading-tight">Fugas<br>de agua</p>
+            </div>
+            <div class="tipo-reporte">
+              <div class="text-2xl mb-1">🔥</div>
+              <p class="text-xs sm:text-sm font-semibold text-emerald-900 text-center leading-tight">Quema<br>de basura</p>
+            </div>
+            <div class="tipo-reporte">
+              <div class="text-2xl mb-1">🏭</div>
+              <p class="text-xs sm:text-sm font-semibold text-emerald-900 text-center leading-tight">Contaminación<br>(aire / suelo)</p>
+            </div>
+          </div>
+          <p class="mt-4 text-xs text-gray-500 italic text-center">
+            * Otros problemas ambientales pueden ser descritos en el formulario.
+          </p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ============================================================
+         FORMULARIO DE REPORTE ANÓNIMO
+         ============================================================ -->
+    <section id="formulario" class="section-card border-2 border-emerald-200 shadow-lg">
+      <div class="section-header bg-gradient-to-r from-emerald-800 to-emerald-700 rounded-t-2xl">
+        <div class="section-icon bg-amber-400">
+          <svg class="w-5 h-5 text-emerald-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+          </svg>
+        </div>
+        <h2 class="section-title text-white">Realizar reporte anónimo</h2>
+      </div>
+
+      <div class="px-5 sm:px-7 py-6">
+        <!-- Aviso de confidencialidad -->
+        <div class="mb-5 p-3 rounded-xl bg-amber-50 border border-amber-200 flex items-start gap-2.5">
+          <svg class="w-5 h-5 text-amber-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+          </svg>
+          <p class="text-xs sm:text-sm text-amber-900 leading-relaxed">
+            <strong>Tu identidad está protegida.</strong> No solicitamos nombre, correo ni teléfono.
+            Los datos son utilizados únicamente para la atención del reporte ambiental.
+          </p>
+        </div>
+
+        <form id="reportForm" class="space-y-5" novalidate>
+          <!-- Dirección -->
+          <div>
+            <label for="direccion" class="form-label">Calle y número <span class="text-red-500">*</span></label>
+            <input type="text" id="direccion" required placeholder="Ej. Av. Juárez #123"
+                   class="form-input">
+          </div>
+
+          <!-- Colonia y CP -->
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label for="colonia" class="form-label">Colonia <span class="text-red-500">*</span></label>
+              <input type="text" id="colonia" required placeholder="Ej. Centro"
+                     class="form-input">
+            </div>
+            <div>
+              <label for="codigoPostal" class="form-label">Código Postal <span class="text-red-500">*</span></label>
+              <input type="text" id="codigoPostal" required placeholder="Ej. 25700" inputmode="numeric" pattern="[0-9]{4,5}"
+                     class="form-input">
+            </div>
+          </div>
+
+          <!-- Antigüedad y Categoría -->
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label for="antiguedad" class="form-label">Antigüedad <span class="text-red-500">*</span></label>
+              <select id="antiguedad" required class="form-input">
+                <option value="" disabled selected>Selecciona</option>
+                <option value="Hoy">Hoy</option>
+                <option value="Hace unos días">Hace unos días</option>
+                <option value="Semanas">Semanas</option>
+                <option value="Más de un mes">Más de un mes</option>
+              </select>
+            </div>
+            <div>
+              <label for="categoria" class="form-label">Categoría <span class="text-red-500">*</span></label>
+              <select id="categoria" required class="form-input">
+                <option value="" disabled selected>Selecciona</option>
+                <option value="Tiraderos clandestinos">Tiraderos clandestinos</option>
+                <option value="Fugas de agua">Fugas de agua</option>
+                <option value="Quema de basura">Quema de basura</option>
+                <option value="Contaminación">Contaminación (aire/suelo)</option>
+                <option value="Otro">Otro (especificar)…</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Categoría personalizada (solo visible si eligen "Otro") -->
+          <div id="categoriaCustomWrapper" class="hidden">
+            <label for="categoriaCustom" class="form-label">
+              Especifica el motivo <span class="text-red-500">*</span>
+            </label>
+            <input type="text" id="categoriaCustom" maxlength="60"
+                   placeholder="Ej. Ruido excesivo, fauna en peligro, etc."
+                   class="form-input">
+            <p class="text-[11px] text-gray-500 mt-1">Máximo 60 caracteres</p>
+          </div>
+
+          <!-- Descripción -->
+          <div>
+            <label for="descripcion" class="form-label">Descripción breve <span class="text-red-500">*</span></label>
+            <textarea id="descripcion" rows="3" required placeholder="Describe el problema (máx. 200 caracteres)" maxlength="200"
+                      class="form-input resize-none"></textarea>
+            <p class="text-[11px] text-gray-500 mt-1">Máximo 200 caracteres</p>
+          </div>
+
+          <!-- Fotos -->
+          <div>
+            <label class="form-label">Evidencia fotográfica <span class="text-gray-400 font-normal">(opcional · máx. 2)</span></label>
+
+            <div class="flex items-center gap-3 flex-wrap">
+              <input type="file" id="fotoInput" accept="image/*" capture="environment" class="file-input-hidden">
+              <button type="button" id="addPhotoBtn"
+                      class="inline-flex items-center gap-2 px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-xl font-semibold transition text-sm border border-emerald-200 disabled:opacity-50 disabled:cursor-not-allowed">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                Agregar foto
+              </button>
+              <span id="fileCount" class="text-xs font-medium text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full">0/2</span>
+            </div>
+
+            <p class="text-[11px] text-emerald-700 mt-2 flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+              Las fotos se optimizan automáticamente a formato WebP para un envío rápido.
+            </p>
+
+            <div id="previewContainer" class="mt-3 grid grid-cols-2 gap-3"></div>
+          </div>
+
+          <!-- Botón de envío -->
+          <button type="submit" id="btnSubmit" class="btn-submit">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+            </svg>
+            <span id="btnSubmitText">Enviar Reporte Anónimo</span>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Nota de privacidad -->
+    <p class="text-xs text-center text-gray-500 pb-4 px-4">
+      Este reporte es completamente anónimo. No se almacenan datos personales ni cookies.
+    </p>
+  </main>
+
+  <!-- ============================================================
+       FOOTER INSTITUCIONAL
+       ============================================================ -->
+  <footer class="footer-institucional mt-10">
+    <div class="max-w-6xl mx-auto px-4 py-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-start">
+
+        <!-- Emblema + nombre -->
+        <div class="flex items-center gap-3">
+          <img src="assets/img/logo-monclova.png" alt="Monclova"
+               class="h-12 w-auto object-contain brightness-0 invert opacity-90"
+               onerror="this.style.display='none';">
+          <div class="text-emerald-50">
+            <p class="text-sm font-bold leading-tight">Gobierno Municipal<br>de Monclova</p>
+            <p class="text-xs text-emerald-200/80 mt-1">Administración 2024 – 2027</p>
+          </div>
+        </div>
+
+        <!-- Dirección -->
+        <div class="text-emerald-100/90 text-xs sm:text-sm space-y-1.5 sm:text-right">
+          <p class="font-bold text-amber-300 uppercase tracking-wider text-xs mb-2">Contacto</p>
+          <p class="flex items-start gap-2 sm:justify-end">
+            <svg class="w-4 h-4 shrink-0 mt-0.5 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            <span>Presidencia Municipal, Monclova, Coahuila, México</span>
+          </p>
+          <p class="flex items-center gap-2 sm:justify-end">
+            <svg class="w-4 h-4 shrink-0 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+            <span>866-649-28-00</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-8 pt-5 border-t border-emerald-700/50 text-center">
+        <p class="text-[11px] text-emerald-200/70 leading-relaxed">
+          © 2024 Gobierno Municipal de Monclova · Dirección de Ecología y Medio Ambiente.
+          Todos los derechos reservados. · Proyecto académico de Desarrollo Sustentable.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== TOAST DE CONFIRMACIÓN ========== -->
+  <div id="toast" class="toast-fixed bg-gray-900 text-white p-4 rounded-2xl shadow-2xl flex items-start gap-3 opacity-0 pointer-events-none">
+    <div class="bg-emerald-500 rounded-full p-1.5 shrink-0">
+      <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+    </div>
+    <div class="text-sm flex-1">
+      <p class="font-semibold">¡Reporte enviado exitosamente de forma anónima!</p>
+      <p class="text-gray-300 text-xs mt-0.5">Folio temporal generado. Gracias por contribuir al medio ambiente de Monclova.</p>
+    </div>
+  </div>
+
+  <!-- ========== FIREBASE SDK ========== -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+  <!-- ========== SCRIPTS DEL PROYECTO ========== -->
+  <script src="js/firebase-config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
